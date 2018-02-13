@@ -1,0 +1,1 @@
+{"version":3,"file":"first.css","sources":["first.scss"],"sourcesContent":["dom{\n  display: flex;\n  pipe{\n    flex-direction: row;\n  }\n}"],"names":[],"mappings":"AAAA,AAAA,GAAG,CAAA;EACD,OAAO,EAAE,IAAI;CAId;;AALD,AAEE,GAFC,CAED,IAAI,CAAA;EACF,cAAc,EAAE,GAAG;CACpB"}

@@ -1,0 +1,26 @@
+{
+  "name": "simplefront",
+  "version": "1.0.0",
+  "description": "Simple set of tools for frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeyKrasnolutskiy/simplefront.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergeyKrasnolutskiy/simplefront/issues"
+  },
+  "homepage": "https://github.com/SergeyKrasnolutskiy/simplefront#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-concat-css": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4"
+  }
+}

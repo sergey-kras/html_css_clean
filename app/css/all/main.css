@@ -1,0 +1,13 @@
+.block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .block .item {
+    display: block;
+    color: #000; }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  .image {
+    background-image: url("../image"); } }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,12 @@
+.block{
+  display: flex;
+  .item{
+    display: block;
+    color: #000;
+  }
+}
+@media (min-resolution: 2dppx) {
+  .image {
+    background-image: url('../image');
+  }
+}
