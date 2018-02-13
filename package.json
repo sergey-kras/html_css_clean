@@ -17,10 +17,14 @@
   },
   "homepage": "https://github.com/SergeyKrasnolutskiy/simplefront#readme",
   "devDependencies": {
+    "concat": "^1.0.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
+    "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^3.0.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.3.1"
   }
 }
