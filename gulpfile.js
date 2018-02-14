@@ -7,17 +7,19 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 
-gulp.task('sass', function () { // sass компилятор
-    return gulp.src('./app/scss/*.scss')
+gulp.task('sass', function () {
+    gulp.src('./app/scss/main.scss')
         .pipe(sourcemaps.init()) // подключены сорсмеп
         .pipe(autoprefixer()) // автопрефикс
         .pipe(sass(
-            autoprefixer(),
             {
-            outputStyle: 'expanded' // тип выхода
-        }).on('error', sass.logError))
+                // includePaths: require('node-normalize-scss').with('other/path', 'another/path')
+                // - or -
+                includePaths: require('node-normalize-scss').includePaths,
+                outputStyle: 'expanded' // тип выхода
+        }))
         .pipe(sourcemaps.write('./')) //подключены сорсмеп
-        .pipe(gulp.dest('./app/css/all'))
+        .pipe(gulp.dest('./app/css/'));
 });
 gulp.task('ReCSS', function () {
     return gulp.src('./app/css/all/*.css') // бандлим css
@@ -30,6 +32,7 @@ gulp.task('ReMAP', function () {
 });
 gulp.task('libs', function() {
     return gulp.src([
+        'app/js/jquery.min.js',
         'app/js/libs/*.js',
         'app/js/common.js'
     ])

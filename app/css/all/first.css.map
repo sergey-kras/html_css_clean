@@ -1,1 +1,0 @@
-{"version":3,"sources":["first.scss"],"names":[],"mappings":"AAAA,GAAA,CAAA;EACE,OAAA,EAAA,WAAA;EAAA,OAAA,EAAA,WAAA;EAAA,OAAA,EAAA,IAAA,GAID;EALD,AAEE,GAFF,CAEE,IAAA,CAAA;IACE,kBAAA,EAAA,UAAA;IAAA,qBAAA,EAAA,MAAA;IAAA,kBAAA,EAAA,GAAA;IAAA,cAAA,EAAA,GAAA,GACD","file":"first.css","sourcesContent":["dom{\n  display: flex;\n  pipe{\n    flex-direction: row;\n  }\n}"]}
