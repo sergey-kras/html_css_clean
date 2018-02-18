@@ -5,6 +5,7 @@ var concatCss = require('gulp-concat-css');
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var imagemin = require('gulp-imagemin');
 
 gulp.task('sass', function () {
     gulp.src('./app/scss/main.scss')
@@ -30,4 +31,9 @@ gulp.task('libs', function() {
         .pipe(concat('scripts.min.js')) // Собираем их в кучу в новом файле libs.min.js
         .pipe(uglify()) // Сжимаем JS файл
         .pipe(gulp.dest('./dist/js')); // Выгружаем в папку app/js
+});
+gulp.task('compress', function() {
+    gulp.src('./app/img/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./dist/img/'))
 });
