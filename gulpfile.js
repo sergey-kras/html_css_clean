@@ -18,6 +18,9 @@ gulp.task('sass', function () {
         }))
         .pipe(gulp.dest('./dist/css/'));
 });
+gulp.task('html', function () {
+    gulp.src('./app/*.html').pipe(gulp.dest('./dist/'))
+});
 gulp.task('libs', function() {
     return gulp.src([
         'app/js/jquery.min.js',
@@ -26,5 +29,5 @@ gulp.task('libs', function() {
     ])
         .pipe(concat('scripts.min.js')) // Собираем их в кучу в новом файле libs.min.js
         .pipe(uglify()) // Сжимаем JS файл
-        .pipe(gulp.dest('dist/js')); // Выгружаем в папку app/js
+        .pipe(gulp.dest('./dist/js')); // Выгружаем в папку app/js
 });
