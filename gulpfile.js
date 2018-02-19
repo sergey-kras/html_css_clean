@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
 var smartgrid = require('smart-grid');
+var clean = require('gulp-clean');
 
 gulp.task('smartgrid', function () {
     /* It's principal settings in smart grid project */
@@ -60,12 +61,22 @@ gulp.task('libs', function() {
         .pipe(uglify()) // Сжимаем JS файл
         .pipe(gulp.dest('./dist/js')) // Выгружаем в папку app/js
 });
-gulp.task('compress', function() {
+gulp.task('compress',['clean-img'], function() {
     gulp.src('./app/img/*')
-        .pipe(imagemin())
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
         .pipe(gulp.dest('./dist/img/'))
 });
-gulp.task('watcher', function() {
+gulp.task('watcher',['html', 'libs', 'sass'], function() {
     gulp.watch("./app/scss/*.scss", ['sass']);
     gulp.watch("./app/js/*.js", ['libs']);
     gulp.watch("./app/img/*", ['compress']);
@@ -87,5 +98,13 @@ gulp.task('browser', function () {
                 ignoreInitial : true
             }
     });
-})
-gulp.task('server', ['browser','watcher'])
+});
+gulp.task('clean-dist', function () {
+    return gulp.src('dist/', {read: false})
+        .pipe(clean());
+});
+gulp.task('clean-img', function () {
+    return gulp.src('dist/img', {read: false})
+        .pipe(clean());
+});
+gulp.task('server', ['browser','watcher', 'clean-dist']);
