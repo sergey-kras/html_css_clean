@@ -8,6 +8,7 @@ var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
 var smartgrid = require('smart-grid');
 var clean = require('gulp-clean');
+var connect = require('gulp-connect-php');
 
 gulp.task('smartgrid', function () {
     /* It's principal settings in smart grid project */
@@ -17,22 +18,22 @@ gulp.task('smartgrid', function () {
         offset: '30px', /* gutter width px || % */
         mobileFirst: false, /* mobileFirst ? 'min-width' : 'max-width' */
         container: {
-            maxWidth: '1200px', /* max-width оn very large screen */
+            maxWidth: '980px', /* max-width оn very large screen */
             fields: '30px' /* side fields */
         },
         breakPoints: {
             lg: {
-                width: '1100px', /* -> @media (max-width: 1100px) */
+                width: '960px', /* -> @media (max-width: 1100px) */
             },
             md: {
-                width: '960px'
+                width: '780px'
             },
             sm: {
-                width: '780px',
+                width: '560px',
                 fields: '15px' /* set fields only if you want to change container.fields */
             },
             xs: {
-                width: '560px'
+                width: '320px'
             }
         }
     };
@@ -45,7 +46,7 @@ gulp.task('sass',['smartgrid'], function () {
             {
                 includePaths: require('node-normalize-scss').includePaths,
                 outputStyle: 'compressed' // тип выхода
-        }))
+            }))
         .pipe(gulp.dest('./dist/css/'))
 });
 gulp.task('html', function () {
@@ -94,10 +95,12 @@ gulp.task('browser', function () {
             notify: false,
             port: 8080,
             watchOptions : {
-                ignored : 'node_modules/*',
+                ignored : [
+                    'node_modules/*'
+                ],
                 ignoreInitial : true
             }
-    });
+        });
 });
 gulp.task('clean-dist', function () {
     return gulp.src('dist/', {read: false})
@@ -107,4 +110,11 @@ gulp.task('clean-img', function () {
     return gulp.src('dist/img', {read: false})
         .pipe(clean());
 });
-gulp.task('server', ['browser','watcher', 'clean-dist']);
+gulp.task('connect', function() {
+    connect.server({
+        port: 8080,
+        hostname: 'localhost',
+        base: './dist'
+    });
+});
+gulp.task('server', ['browser','watcher']);
