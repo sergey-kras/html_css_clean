@@ -1,0 +1,36 @@
+.advantages{
+  background: url("../img/bg2.png") no-repeat center bottom;
+  background-size: cover;
+  padding-bottom: 80px;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  &:after{
+    content: '';
+    width: 125px;
+    height: 36px;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    background: url("../img/triansgle.png") no-repeat center;
+    background-size: contain;
+    transform: translate(-50%,0%);
+  }
+  &__items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .advantages__item{
+      @include col();
+      @include size(4);
+      margin-bottom: 30px;
+      img{
+        margin: 0 auto;
+        max-width: 140px;
+      }
+      p{
+        font-size: 15px;
+      }
+    }
+  }
+}
