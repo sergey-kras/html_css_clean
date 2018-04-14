@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     .logo{
+      margin-right: 100px;
       &__desk{
         font-weight: bold;
         font-size: 14px;
@@ -29,7 +30,6 @@
     display: flex;
     justify-content: space-between;
     list-style-type: none;
-    padding-left: 100px;
     width: 100%;
     li{
       a{
