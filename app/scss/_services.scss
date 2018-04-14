@@ -1,0 +1,37 @@
+.services{
+  margin-bottom: 50px;
+  &__content{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  &__item{
+    text-align: center;
+    @include col();
+    @include size(3);
+    .image{
+      margin: 0 auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 100%;
+      border: 5px solid $green;
+      margin-bottom: 35px;
+    }
+    h3{
+      font-weight: bold;
+      font-size: 14px;
+    }
+    hr{
+      background-color: $green;
+      width: 100px;
+      height: 3px;
+      border: none;
+      margin: 0 auto;
+    }
+    p{
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
