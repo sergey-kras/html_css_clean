@@ -1,0 +1,40 @@
+.contacts{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 20px;
+  &__title{
+    z-index: 1;
+    position: relative;
+  }
+  &__content{
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .item a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+      img{
+        margin-right: 10px;
+      }
+    }
+  }
+  &:after{
+    z-index: 0;
+    opacity: .7;
+    content: '';
+    background-color: $green;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
