@@ -7,10 +7,16 @@
   .form{
     margin: 0 auto;
     @include size(6);
+    @include size-md(12);
+    @include size-sm(12);
     border: 4px solid $green;
     display: flex;
     flex-direction: column;
     padding: 15px 40px;
+    @include resp(0, 900){
+      padding-left: 0px;
+      padding-right: 0px;
+    }
     &__title{
       margin: 0 auto;
       display: inline-block;
@@ -64,6 +70,9 @@
       font-size: 16px;
       padding-bottom: 8px;
       resize: none;
+      @include resp(0, 900){
+        width: 90%;
+      }
     }
     .button{
       align-self: center;

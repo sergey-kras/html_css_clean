@@ -21,8 +21,11 @@
     flex-wrap: wrap;
     justify-content: center;
     .advantages__item{
+      min-width: 200px;
       @include col();
       @include size(4);
+      @include size-sm(12);
+      @include size-xs(12);
       margin-bottom: 30px;
       img{
         margin: 0 auto;
